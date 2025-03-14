@@ -46,6 +46,39 @@ router.get('/', async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/contacts/{id}:
+ *   get:
+ *     summary: Get a single contact by ID
+ *     tags: [Contacts]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The contact ID
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A single contact object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                 phone:
+ *                   type: string
+ *                 email:
+ *                   type: string
+ *       404:
+ *         description: Contact not found
+ *       500:
+ *         description: Server error
+ */
+
 // @desc    Get a single contact by ID
 // @route   GET /api/contacts/:id
 router.get('/:id', async (req, res) => {
